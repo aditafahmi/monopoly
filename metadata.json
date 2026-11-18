@@ -1,0 +1,6 @@
+{
+  "name": "Monopoli Jaksel",
+  "description": "Game monopoli web dengan peta sirkular Jakarta Selatan, animasi pion pemain, dan sistem chat real-time WebSocket.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

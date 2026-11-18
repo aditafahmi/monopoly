@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: var(--font-sans);
+    background-color: #08241d;
+    color: #f6f2e9;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes token-breathe {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.06);
+  }
+}
+
+@keyframes dice-tumble {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(95deg) scale(1.12);
+  }
+  50% {
+    transform: rotate(190deg) scale(0.95);
+  }
+  75% {
+    transform: rotate(280deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes ring-ripple {
+  0% {
+    opacity: 0.9;
+    transform: scale(0.7);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.8);
+  }
+}
+
+@keyframes float-up-fade {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 6px) scale(0.9);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -6px) scale(1.05);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(-50%, -22px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -32px) scale(0.95);
+  }
+}
+
+.animate-token-breathe {
+  animation: token-breathe 1.6s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+}
+
+.animate-dice-tumble {
+  animation: dice-tumble 0.45s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.animate-ring-ripple {
+  animation: ring-ripple 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-float-delta {
+  animation: float-up-fade 1.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Custom subtle scrollbars for side panels */
+.jaksel-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+.jaksel-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.jaksel-scroll::-webkit-scrollbar-thumb {
+  background: rgba(246, 242, 233, 0.16);
+  border-radius: 999px;
+}
+.jaksel-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(246, 242, 233, 0.28);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-token-breathe,
+  .animate-dice-tumble,
+  .animate-ring-ripple,
+  .animate-float-delta {
+    animation: none !important;
+  }
+}
